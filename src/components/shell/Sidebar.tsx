@@ -3,10 +3,12 @@ import {
   Activity, AlertTriangle, BarChart3, Boxes, Building2, ClipboardList,
   Cog, Database, Factory, FileText, GitBranch, Layers, MessageSquare,
   Network, Plug, Search, Settings, ShieldCheck, Truck, Users, Workflow, Zap,
+  Crosshair, FlaskConical,
 } from "lucide-react";
 
 const items = [
   { to: "/app/dashboard", icon: Activity, label: "Dashboard" },
+  { to: "/app/command", icon: Crosshair, label: "Risk Command" },
   { to: "/app/shortages", icon: AlertTriangle, label: "Shortages" },
   { to: "/app/materials", icon: Boxes, label: "Materials" },
   { to: "/app/suppliers", icon: Truck, label: "Suppliers" },
@@ -20,6 +22,7 @@ const items = [
   { to: "/app/cascade", icon: Workflow, label: "Cascade Analyzer" },
   { to: "/app/root-cause", icon: Search, label: "Root Cause" },
   { to: "/app/simulator", icon: Zap, label: "Digital Twin" },
+  { to: "/app/research", icon: FlaskConical, label: "Research Metrics" },
   { divider: "Workspace" },
   { to: "/app/reports", icon: FileText, label: "Reports" },
   { to: "/app/collaboration", icon: MessageSquare, label: "Collaboration" },

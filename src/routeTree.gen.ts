@@ -19,6 +19,7 @@ import { Route as AppSimulatorRouteImport } from './routes/app.simulator'
 import { Route as AppShortagesRouteImport } from './routes/app.shortages'
 import { Route as AppSettingsRouteImport } from './routes/app.settings'
 import { Route as AppRootCauseRouteImport } from './routes/app.root-cause'
+import { Route as AppResearchRouteImport } from './routes/app.research'
 import { Route as AppReportsRouteImport } from './routes/app.reports'
 import { Route as AppPurchaseOrdersRouteImport } from './routes/app.purchase-orders'
 import { Route as AppProductionOrdersRouteImport } from './routes/app.production-orders'
@@ -29,6 +30,7 @@ import { Route as AppMaterialsRouteImport } from './routes/app.materials'
 import { Route as AppIntegrationsRouteImport } from './routes/app.integrations'
 import { Route as AppGranularityRouteImport } from './routes/app.granularity'
 import { Route as AppDashboardRouteImport } from './routes/app.dashboard'
+import { Route as AppCommandRouteImport } from './routes/app.command'
 import { Route as AppCollaborationRouteImport } from './routes/app.collaboration'
 import { Route as AppCascadeRouteImport } from './routes/app.cascade'
 import { Route as AppBatchesRouteImport } from './routes/app.batches'
@@ -87,6 +89,11 @@ const AppRootCauseRoute = AppRootCauseRouteImport.update({
   path: '/root-cause',
   getParentRoute: () => AppRoute,
 } as any)
+const AppResearchRoute = AppResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppReportsRoute = AppReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
@@ -137,6 +144,11 @@ const AppDashboardRoute = AppDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AppRoute,
 } as any)
+const AppCommandRoute = AppCommandRouteImport.update({
+  id: '/command',
+  path: '/command',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppCollaborationRoute = AppCollaborationRouteImport.update({
   id: '/collaboration',
   path: '/collaboration',
@@ -185,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/app/batches': typeof AppBatchesRoute
   '/app/cascade': typeof AppCascadeRoute
   '/app/collaboration': typeof AppCollaborationRoute
+  '/app/command': typeof AppCommandRoute
   '/app/dashboard': typeof AppDashboardRoute
   '/app/granularity': typeof AppGranularityRoute
   '/app/integrations': typeof AppIntegrationsRoute
@@ -195,6 +208,7 @@ export interface FileRoutesByFullPath {
   '/app/production-orders': typeof AppProductionOrdersRoute
   '/app/purchase-orders': typeof AppPurchaseOrdersRoute
   '/app/reports': typeof AppReportsRoute
+  '/app/research': typeof AppResearchRoute
   '/app/root-cause': typeof AppRootCauseRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/shortages': typeof AppShortagesRoute
@@ -214,6 +228,7 @@ export interface FileRoutesByTo {
   '/app/batches': typeof AppBatchesRoute
   '/app/cascade': typeof AppCascadeRoute
   '/app/collaboration': typeof AppCollaborationRoute
+  '/app/command': typeof AppCommandRoute
   '/app/dashboard': typeof AppDashboardRoute
   '/app/granularity': typeof AppGranularityRoute
   '/app/integrations': typeof AppIntegrationsRoute
@@ -224,6 +239,7 @@ export interface FileRoutesByTo {
   '/app/production-orders': typeof AppProductionOrdersRoute
   '/app/purchase-orders': typeof AppPurchaseOrdersRoute
   '/app/reports': typeof AppReportsRoute
+  '/app/research': typeof AppResearchRoute
   '/app/root-cause': typeof AppRootCauseRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/shortages': typeof AppShortagesRoute
@@ -244,6 +260,7 @@ export interface FileRoutesById {
   '/app/batches': typeof AppBatchesRoute
   '/app/cascade': typeof AppCascadeRoute
   '/app/collaboration': typeof AppCollaborationRoute
+  '/app/command': typeof AppCommandRoute
   '/app/dashboard': typeof AppDashboardRoute
   '/app/granularity': typeof AppGranularityRoute
   '/app/integrations': typeof AppIntegrationsRoute
@@ -254,6 +271,7 @@ export interface FileRoutesById {
   '/app/production-orders': typeof AppProductionOrdersRoute
   '/app/purchase-orders': typeof AppPurchaseOrdersRoute
   '/app/reports': typeof AppReportsRoute
+  '/app/research': typeof AppResearchRoute
   '/app/root-cause': typeof AppRootCauseRoute
   '/app/settings': typeof AppSettingsRoute
   '/app/shortages': typeof AppShortagesRoute
@@ -275,6 +293,7 @@ export interface FileRouteTypes {
     | '/app/batches'
     | '/app/cascade'
     | '/app/collaboration'
+    | '/app/command'
     | '/app/dashboard'
     | '/app/granularity'
     | '/app/integrations'
@@ -285,6 +304,7 @@ export interface FileRouteTypes {
     | '/app/production-orders'
     | '/app/purchase-orders'
     | '/app/reports'
+    | '/app/research'
     | '/app/root-cause'
     | '/app/settings'
     | '/app/shortages'
@@ -304,6 +324,7 @@ export interface FileRouteTypes {
     | '/app/batches'
     | '/app/cascade'
     | '/app/collaboration'
+    | '/app/command'
     | '/app/dashboard'
     | '/app/granularity'
     | '/app/integrations'
@@ -314,6 +335,7 @@ export interface FileRouteTypes {
     | '/app/production-orders'
     | '/app/purchase-orders'
     | '/app/reports'
+    | '/app/research'
     | '/app/root-cause'
     | '/app/settings'
     | '/app/shortages'
@@ -333,6 +355,7 @@ export interface FileRouteTypes {
     | '/app/batches'
     | '/app/cascade'
     | '/app/collaboration'
+    | '/app/command'
     | '/app/dashboard'
     | '/app/granularity'
     | '/app/integrations'
@@ -343,6 +366,7 @@ export interface FileRouteTypes {
     | '/app/production-orders'
     | '/app/purchase-orders'
     | '/app/reports'
+    | '/app/research'
     | '/app/root-cause'
     | '/app/settings'
     | '/app/shortages'
@@ -431,6 +455,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppRootCauseRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/research': {
+      id: '/app/research'
+      path: '/research'
+      fullPath: '/app/research'
+      preLoaderRoute: typeof AppResearchRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/reports': {
       id: '/app/reports'
       path: '/reports'
@@ -501,6 +532,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/command': {
+      id: '/app/command'
+      path: '/command'
+      fullPath: '/app/command'
+      preLoaderRoute: typeof AppCommandRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/collaboration': {
       id: '/app/collaboration'
       path: '/collaboration'
@@ -560,6 +598,7 @@ interface AppRouteChildren {
   AppBatchesRoute: typeof AppBatchesRoute
   AppCascadeRoute: typeof AppCascadeRoute
   AppCollaborationRoute: typeof AppCollaborationRoute
+  AppCommandRoute: typeof AppCommandRoute
   AppDashboardRoute: typeof AppDashboardRoute
   AppGranularityRoute: typeof AppGranularityRoute
   AppIntegrationsRoute: typeof AppIntegrationsRoute
@@ -570,6 +609,7 @@ interface AppRouteChildren {
   AppProductionOrdersRoute: typeof AppProductionOrdersRoute
   AppPurchaseOrdersRoute: typeof AppPurchaseOrdersRoute
   AppReportsRoute: typeof AppReportsRoute
+  AppResearchRoute: typeof AppResearchRoute
   AppRootCauseRoute: typeof AppRootCauseRoute
   AppSettingsRoute: typeof AppSettingsRoute
   AppShortagesRoute: typeof AppShortagesRoute
@@ -585,6 +625,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppBatchesRoute: AppBatchesRoute,
   AppCascadeRoute: AppCascadeRoute,
   AppCollaborationRoute: AppCollaborationRoute,
+  AppCommandRoute: AppCommandRoute,
   AppDashboardRoute: AppDashboardRoute,
   AppGranularityRoute: AppGranularityRoute,
   AppIntegrationsRoute: AppIntegrationsRoute,
@@ -595,6 +636,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppProductionOrdersRoute: AppProductionOrdersRoute,
   AppPurchaseOrdersRoute: AppPurchaseOrdersRoute,
   AppReportsRoute: AppReportsRoute,
+  AppResearchRoute: AppResearchRoute,
   AppRootCauseRoute: AppRootCauseRoute,
   AppSettingsRoute: AppSettingsRoute,
   AppShortagesRoute: AppShortagesRoute,
