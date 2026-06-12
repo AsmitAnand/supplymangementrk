@@ -81,11 +81,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "SUPPLYMIND.RESEARCH — Multi-Granularity OCPM for Shortage Management" },
       { name: "description", content: "Object-centric process mining and shortage cascade intelligence for supply chain professionals." },
       { name: "author", content: "Ritam Khandelwal" },
-      { property: "og:title", content: "SUPPLYMIND.RESEARCH" },
-      { property: "og:description", content: "Multi-Granularity OCPM for Shortage Management." },
+      { property: "og:title", content: "SUPPLYMIND.RESEARCH — Multi-Granularity OCPM for Shortage Management" },
+      { property: "og:description", content: "Object-centric process mining and shortage cascade intelligence for supply chain professionals." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "SUPPLYMIND.RESEARCH — Multi-Granularity OCPM for Shortage Management" },
+      { name: "twitter:description", content: "Object-centric process mining and shortage cascade intelligence for supply chain professionals." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/528da723-0d8b-48cf-8eb9-7689accd12e1/id-preview-ad1239c2--7acd222b-0435-46b2-8647-afef6ea098d3.lovable.app-1781281709138.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/528da723-0d8b-48cf-8eb9-7689accd12e1/id-preview-ad1239c2--7acd222b-0435-46b2-8647-afef6ea098d3.lovable.app-1781281709138.png" },
     ],
     links: [
       {
