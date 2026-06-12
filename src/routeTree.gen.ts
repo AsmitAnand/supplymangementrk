@@ -9,38 +9,359 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppUsersRouteImport } from './routes/app.users'
+import { Route as AppSuppliersRouteImport } from './routes/app.suppliers'
+import { Route as AppSimulatorRouteImport } from './routes/app.simulator'
+import { Route as AppShortagesRouteImport } from './routes/app.shortages'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppRootCauseRouteImport } from './routes/app.root-cause'
+import { Route as AppReportsRouteImport } from './routes/app.reports'
+import { Route as AppPurchaseOrdersRouteImport } from './routes/app.purchase-orders'
+import { Route as AppProductionOrdersRouteImport } from './routes/app.production-orders'
+import { Route as AppPlantsRouteImport } from './routes/app.plants'
+import { Route as AppOnboardingRouteImport } from './routes/app.onboarding'
+import { Route as AppOcelRouteImport } from './routes/app.ocel'
+import { Route as AppMaterialsRouteImport } from './routes/app.materials'
+import { Route as AppIntegrationsRouteImport } from './routes/app.integrations'
+import { Route as AppGranularityRouteImport } from './routes/app.granularity'
+import { Route as AppDashboardRouteImport } from './routes/app.dashboard'
+import { Route as AppCollaborationRouteImport } from './routes/app.collaboration'
+import { Route as AppCascadeRouteImport } from './routes/app.cascade'
+import { Route as AppBatchesRouteImport } from './routes/app.batches'
+import { Route as AppAuditRouteImport } from './routes/app.audit'
+import { Route as AppApiRouteImport } from './routes/app.api'
+import { Route as AppAccessRouteImport } from './routes/app.access'
+import { Route as ApiCopilotRouteImport } from './routes/api/copilot'
 
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppUsersRoute = AppUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSuppliersRoute = AppSuppliersRouteImport.update({
+  id: '/suppliers',
+  path: '/suppliers',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSimulatorRoute = AppSimulatorRouteImport.update({
+  id: '/simulator',
+  path: '/simulator',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppShortagesRoute = AppShortagesRouteImport.update({
+  id: '/shortages',
+  path: '/shortages',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRootCauseRoute = AppRootCauseRouteImport.update({
+  id: '/root-cause',
+  path: '/root-cause',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPurchaseOrdersRoute = AppPurchaseOrdersRouteImport.update({
+  id: '/purchase-orders',
+  path: '/purchase-orders',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProductionOrdersRoute = AppProductionOrdersRouteImport.update({
+  id: '/production-orders',
+  path: '/production-orders',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlantsRoute = AppPlantsRouteImport.update({
+  id: '/plants',
+  path: '/plants',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppOnboardingRoute = AppOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppOcelRoute = AppOcelRouteImport.update({
+  id: '/ocel',
+  path: '/ocel',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMaterialsRoute = AppMaterialsRouteImport.update({
+  id: '/materials',
+  path: '/materials',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppIntegrationsRoute = AppIntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppGranularityRoute = AppGranularityRouteImport.update({
+  id: '/granularity',
+  path: '/granularity',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCollaborationRoute = AppCollaborationRouteImport.update({
+  id: '/collaboration',
+  path: '/collaboration',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCascadeRoute = AppCascadeRouteImport.update({
+  id: '/cascade',
+  path: '/cascade',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBatchesRoute = AppBatchesRouteImport.update({
+  id: '/batches',
+  path: '/batches',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAuditRoute = AppAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppApiRoute = AppApiRouteImport.update({
+  id: '/api',
+  path: '/api',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAccessRoute = AppAccessRouteImport.update({
+  id: '/access',
+  path: '/access',
+  getParentRoute: () => AppRoute,
+} as any)
+const ApiCopilotRoute = ApiCopilotRouteImport.update({
+  id: '/api/copilot',
+  path: '/api/copilot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/api/copilot': typeof ApiCopilotRoute
+  '/app/access': typeof AppAccessRoute
+  '/app/api': typeof AppApiRoute
+  '/app/audit': typeof AppAuditRoute
+  '/app/batches': typeof AppBatchesRoute
+  '/app/cascade': typeof AppCascadeRoute
+  '/app/collaboration': typeof AppCollaborationRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/granularity': typeof AppGranularityRoute
+  '/app/integrations': typeof AppIntegrationsRoute
+  '/app/materials': typeof AppMaterialsRoute
+  '/app/ocel': typeof AppOcelRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/plants': typeof AppPlantsRoute
+  '/app/production-orders': typeof AppProductionOrdersRoute
+  '/app/purchase-orders': typeof AppPurchaseOrdersRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/root-cause': typeof AppRootCauseRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/shortages': typeof AppShortagesRoute
+  '/app/simulator': typeof AppSimulatorRoute
+  '/app/suppliers': typeof AppSuppliersRoute
+  '/app/users': typeof AppUsersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/api/copilot': typeof ApiCopilotRoute
+  '/app/access': typeof AppAccessRoute
+  '/app/api': typeof AppApiRoute
+  '/app/audit': typeof AppAuditRoute
+  '/app/batches': typeof AppBatchesRoute
+  '/app/cascade': typeof AppCascadeRoute
+  '/app/collaboration': typeof AppCollaborationRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/granularity': typeof AppGranularityRoute
+  '/app/integrations': typeof AppIntegrationsRoute
+  '/app/materials': typeof AppMaterialsRoute
+  '/app/ocel': typeof AppOcelRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/plants': typeof AppPlantsRoute
+  '/app/production-orders': typeof AppProductionOrdersRoute
+  '/app/purchase-orders': typeof AppPurchaseOrdersRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/root-cause': typeof AppRootCauseRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/shortages': typeof AppShortagesRoute
+  '/app/simulator': typeof AppSimulatorRoute
+  '/app/suppliers': typeof AppSuppliersRoute
+  '/app/users': typeof AppUsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/api/copilot': typeof ApiCopilotRoute
+  '/app/access': typeof AppAccessRoute
+  '/app/api': typeof AppApiRoute
+  '/app/audit': typeof AppAuditRoute
+  '/app/batches': typeof AppBatchesRoute
+  '/app/cascade': typeof AppCascadeRoute
+  '/app/collaboration': typeof AppCollaborationRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/granularity': typeof AppGranularityRoute
+  '/app/integrations': typeof AppIntegrationsRoute
+  '/app/materials': typeof AppMaterialsRoute
+  '/app/ocel': typeof AppOcelRoute
+  '/app/onboarding': typeof AppOnboardingRoute
+  '/app/plants': typeof AppPlantsRoute
+  '/app/production-orders': typeof AppProductionOrdersRoute
+  '/app/purchase-orders': typeof AppPurchaseOrdersRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/root-cause': typeof AppRootCauseRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/shortages': typeof AppShortagesRoute
+  '/app/simulator': typeof AppSimulatorRoute
+  '/app/suppliers': typeof AppSuppliersRoute
+  '/app/users': typeof AppUsersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/api/copilot'
+    | '/app/access'
+    | '/app/api'
+    | '/app/audit'
+    | '/app/batches'
+    | '/app/cascade'
+    | '/app/collaboration'
+    | '/app/dashboard'
+    | '/app/granularity'
+    | '/app/integrations'
+    | '/app/materials'
+    | '/app/ocel'
+    | '/app/onboarding'
+    | '/app/plants'
+    | '/app/production-orders'
+    | '/app/purchase-orders'
+    | '/app/reports'
+    | '/app/root-cause'
+    | '/app/settings'
+    | '/app/shortages'
+    | '/app/simulator'
+    | '/app/suppliers'
+    | '/app/users'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/api/copilot'
+    | '/app/access'
+    | '/app/api'
+    | '/app/audit'
+    | '/app/batches'
+    | '/app/cascade'
+    | '/app/collaboration'
+    | '/app/dashboard'
+    | '/app/granularity'
+    | '/app/integrations'
+    | '/app/materials'
+    | '/app/ocel'
+    | '/app/onboarding'
+    | '/app/plants'
+    | '/app/production-orders'
+    | '/app/purchase-orders'
+    | '/app/reports'
+    | '/app/root-cause'
+    | '/app/settings'
+    | '/app/shortages'
+    | '/app/simulator'
+    | '/app/suppliers'
+    | '/app/users'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/login'
+    | '/api/copilot'
+    | '/app/access'
+    | '/app/api'
+    | '/app/audit'
+    | '/app/batches'
+    | '/app/cascade'
+    | '/app/collaboration'
+    | '/app/dashboard'
+    | '/app/granularity'
+    | '/app/integrations'
+    | '/app/materials'
+    | '/app/ocel'
+    | '/app/onboarding'
+    | '/app/plants'
+    | '/app/production-orders'
+    | '/app/purchase-orders'
+    | '/app/reports'
+    | '/app/root-cause'
+    | '/app/settings'
+    | '/app/shortages'
+    | '/app/simulator'
+    | '/app/suppliers'
+    | '/app/users'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  ApiCopilotRoute: typeof ApiCopilotRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +369,228 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/users': {
+      id: '/app/users'
+      path: '/users'
+      fullPath: '/app/users'
+      preLoaderRoute: typeof AppUsersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/suppliers': {
+      id: '/app/suppliers'
+      path: '/suppliers'
+      fullPath: '/app/suppliers'
+      preLoaderRoute: typeof AppSuppliersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/simulator': {
+      id: '/app/simulator'
+      path: '/simulator'
+      fullPath: '/app/simulator'
+      preLoaderRoute: typeof AppSimulatorRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/shortages': {
+      id: '/app/shortages'
+      path: '/shortages'
+      fullPath: '/app/shortages'
+      preLoaderRoute: typeof AppShortagesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/root-cause': {
+      id: '/app/root-cause'
+      path: '/root-cause'
+      fullPath: '/app/root-cause'
+      preLoaderRoute: typeof AppRootCauseRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/reports': {
+      id: '/app/reports'
+      path: '/reports'
+      fullPath: '/app/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/purchase-orders': {
+      id: '/app/purchase-orders'
+      path: '/purchase-orders'
+      fullPath: '/app/purchase-orders'
+      preLoaderRoute: typeof AppPurchaseOrdersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/production-orders': {
+      id: '/app/production-orders'
+      path: '/production-orders'
+      fullPath: '/app/production-orders'
+      preLoaderRoute: typeof AppProductionOrdersRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/plants': {
+      id: '/app/plants'
+      path: '/plants'
+      fullPath: '/app/plants'
+      preLoaderRoute: typeof AppPlantsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/onboarding': {
+      id: '/app/onboarding'
+      path: '/onboarding'
+      fullPath: '/app/onboarding'
+      preLoaderRoute: typeof AppOnboardingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/ocel': {
+      id: '/app/ocel'
+      path: '/ocel'
+      fullPath: '/app/ocel'
+      preLoaderRoute: typeof AppOcelRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/materials': {
+      id: '/app/materials'
+      path: '/materials'
+      fullPath: '/app/materials'
+      preLoaderRoute: typeof AppMaterialsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/integrations': {
+      id: '/app/integrations'
+      path: '/integrations'
+      fullPath: '/app/integrations'
+      preLoaderRoute: typeof AppIntegrationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/granularity': {
+      id: '/app/granularity'
+      path: '/granularity'
+      fullPath: '/app/granularity'
+      preLoaderRoute: typeof AppGranularityRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/dashboard': {
+      id: '/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/collaboration': {
+      id: '/app/collaboration'
+      path: '/collaboration'
+      fullPath: '/app/collaboration'
+      preLoaderRoute: typeof AppCollaborationRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/cascade': {
+      id: '/app/cascade'
+      path: '/cascade'
+      fullPath: '/app/cascade'
+      preLoaderRoute: typeof AppCascadeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/batches': {
+      id: '/app/batches'
+      path: '/batches'
+      fullPath: '/app/batches'
+      preLoaderRoute: typeof AppBatchesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/audit': {
+      id: '/app/audit'
+      path: '/audit'
+      fullPath: '/app/audit'
+      preLoaderRoute: typeof AppAuditRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/api': {
+      id: '/app/api'
+      path: '/api'
+      fullPath: '/app/api'
+      preLoaderRoute: typeof AppApiRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/access': {
+      id: '/app/access'
+      path: '/access'
+      fullPath: '/app/access'
+      preLoaderRoute: typeof AppAccessRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/api/copilot': {
+      id: '/api/copilot'
+      path: '/api/copilot'
+      fullPath: '/api/copilot'
+      preLoaderRoute: typeof ApiCopilotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppAccessRoute: typeof AppAccessRoute
+  AppApiRoute: typeof AppApiRoute
+  AppAuditRoute: typeof AppAuditRoute
+  AppBatchesRoute: typeof AppBatchesRoute
+  AppCascadeRoute: typeof AppCascadeRoute
+  AppCollaborationRoute: typeof AppCollaborationRoute
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppGranularityRoute: typeof AppGranularityRoute
+  AppIntegrationsRoute: typeof AppIntegrationsRoute
+  AppMaterialsRoute: typeof AppMaterialsRoute
+  AppOcelRoute: typeof AppOcelRoute
+  AppOnboardingRoute: typeof AppOnboardingRoute
+  AppPlantsRoute: typeof AppPlantsRoute
+  AppProductionOrdersRoute: typeof AppProductionOrdersRoute
+  AppPurchaseOrdersRoute: typeof AppPurchaseOrdersRoute
+  AppReportsRoute: typeof AppReportsRoute
+  AppRootCauseRoute: typeof AppRootCauseRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppShortagesRoute: typeof AppShortagesRoute
+  AppSimulatorRoute: typeof AppSimulatorRoute
+  AppSuppliersRoute: typeof AppSuppliersRoute
+  AppUsersRoute: typeof AppUsersRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAccessRoute: AppAccessRoute,
+  AppApiRoute: AppApiRoute,
+  AppAuditRoute: AppAuditRoute,
+  AppBatchesRoute: AppBatchesRoute,
+  AppCascadeRoute: AppCascadeRoute,
+  AppCollaborationRoute: AppCollaborationRoute,
+  AppDashboardRoute: AppDashboardRoute,
+  AppGranularityRoute: AppGranularityRoute,
+  AppIntegrationsRoute: AppIntegrationsRoute,
+  AppMaterialsRoute: AppMaterialsRoute,
+  AppOcelRoute: AppOcelRoute,
+  AppOnboardingRoute: AppOnboardingRoute,
+  AppPlantsRoute: AppPlantsRoute,
+  AppProductionOrdersRoute: AppProductionOrdersRoute,
+  AppPurchaseOrdersRoute: AppPurchaseOrdersRoute,
+  AppReportsRoute: AppReportsRoute,
+  AppRootCauseRoute: AppRootCauseRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppShortagesRoute: AppShortagesRoute,
+  AppSimulatorRoute: AppSimulatorRoute,
+  AppSuppliersRoute: AppSuppliersRoute,
+  AppUsersRoute: AppUsersRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  LoginRoute: LoginRoute,
+  ApiCopilotRoute: ApiCopilotRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
