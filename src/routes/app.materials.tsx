@@ -10,13 +10,16 @@ export const Route = createFileRoute("/app/materials")({ component: MaterialsPag
 
 function MaterialsPage() {
   const [open, setOpen] = useState<Material | null>(null);
+  const [extra, setExtra] = useState<Material[]>([]);
+  const [adding, setAdding] = useState(false);
+  const rows = useMemo(() => [...extra, ...db.materials], [extra]);
 
   return (
     <div>
       <PageHeader title="Material Intelligence Center"
         subtitle="Master catalog · cost, stock, criticality, supplier linkage, AI scoring · click any row for full intelligence"
-        actions={<button className="h-8 px-3 text-xs rounded bg-primary text-primary-foreground">+ Add material</button>} />
-      <DataTable rows={db.materials} columns={[
+        actions={<button onClick={() => setAdding(true)} className="h-8 px-3 text-xs rounded bg-primary text-primary-foreground hover:opacity-90">+ Add material</button>} />
+      <DataTable rows={rows} columns={[
         { key: "sku", label: "SKU", render: (r) => <button onClick={() => setOpen(r)} className="font-mono text-primary hover:underline">{r.sku}</button> },
         { key: "name", label: "Name", render: (r) => <button onClick={() => setOpen(r)} className="hover:text-primary text-left">{r.name}</button> },
         { key: "group", label: "Group" },
@@ -30,7 +33,86 @@ function MaterialsPage() {
         { key: "status", label: "Status", render: (r) => <SeverityBadge severity={r.status} /> },
       ]} />
       {open && <MaterialDrawer m={open} onClose={() => setOpen(null)} />}
+      {adding && <AddMaterialDialog onClose={() => setAdding(false)} onCreate={(m) => { setExtra((p) => [m, ...p]); setAdding(false); }} />}
     </div>
+  );
+}
+
+function AddMaterialDialog({ onClose, onCreate }: { onClose: () => void; onCreate: (m: Material) => void }) {
+  const [sku, setSku] = useState("");
+  const [name, setName] = useState("");
+  const [group, setGroup] = useState("Electronics");
+  const [unitCost, setUnitCost] = useState(10);
+  const [stock, setStock] = useState(500);
+  const [reorderPoint, setReorder] = useState(200);
+  const [leadTimeDays, setLead] = useState(14);
+  const [criticality, setCrit] = useState<"A" | "B" | "C">("B");
+  const [supplierId, setSupplier] = useState(db.suppliers[0].id);
+  const [plantId, setPlant] = useState(db.plants[0].id);
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!sku.trim() || !name.trim()) return;
+    const status = stock === 0 || stock < reorderPoint * 0.4 ? "critical" : stock < reorderPoint ? "warning" : "healthy";
+    onCreate({
+      id: `MAT-${Date.now().toString().slice(-5)}`,
+      sku: sku.trim(), name: name.trim(), group,
+      unitCost: Number(unitCost), stock: Number(stock), reorderPoint: Number(reorderPoint),
+      leadTimeDays: Number(leadTimeDays), criticality, supplierId, plantId, status,
+    });
+  };
+
+  return (
+    <div className="fixed inset-0 bg-background/70 z-50 grid place-items-center p-4" onClick={onClose}>
+      <form onClick={(e) => e.stopPropagation()} onSubmit={submit}
+        className="w-[560px] max-w-full bg-card border border-border rounded-md shadow-lg">
+        <div className="px-5 py-3 border-b border-border flex items-center justify-between">
+          <div className="tech-label">Add Material</div>
+          <button type="button" onClick={onClose} className="h-7 w-7 grid place-items-center rounded hover:bg-secondary"><X className="h-4 w-4" /></button>
+        </div>
+        <div className="p-5 grid grid-cols-2 gap-3 text-xs">
+          <Field label="SKU"><input required value={sku} onChange={(e) => setSku(e.target.value)} className="inp" placeholder="EL-2001" /></Field>
+          <Field label="Group">
+            <select value={group} onChange={(e) => setGroup(e.target.value)} className="inp">
+              {["Electronics","Mechanical","Chemical","Packaging","Raw Steel","Plastics","Wiring"].map((g) => <option key={g}>{g}</option>)}
+            </select>
+          </Field>
+          <Field label="Name" full><input required value={name} onChange={(e) => setName(e.target.value)} className="inp" placeholder="Electronics Module 61" /></Field>
+          <Field label="Unit Cost ($)"><input type="number" min={0} step="0.01" value={unitCost} onChange={(e) => setUnitCost(+e.target.value)} className="inp" /></Field>
+          <Field label="Lead Time (days)"><input type="number" min={0} value={leadTimeDays} onChange={(e) => setLead(+e.target.value)} className="inp" /></Field>
+          <Field label="Stock"><input type="number" min={0} value={stock} onChange={(e) => setStock(+e.target.value)} className="inp" /></Field>
+          <Field label="Reorder Point"><input type="number" min={0} value={reorderPoint} onChange={(e) => setReorder(+e.target.value)} className="inp" /></Field>
+          <Field label="Criticality">
+            <select value={criticality} onChange={(e) => setCrit(e.target.value as "A"|"B"|"C")} className="inp">
+              <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+            </select>
+          </Field>
+          <Field label="Supplier">
+            <select value={supplierId} onChange={(e) => setSupplier(e.target.value)} className="inp">
+              {db.suppliers.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
+            </select>
+          </Field>
+          <Field label="Plant" full>
+            <select value={plantId} onChange={(e) => setPlant(e.target.value)} className="inp">
+              {db.plants.map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}
+            </select>
+          </Field>
+        </div>
+        <div className="px-5 py-3 border-t border-border flex justify-end gap-2">
+          <button type="button" onClick={onClose} className="h-8 px-3 text-xs rounded border border-border hover:bg-secondary">Cancel</button>
+          <button type="submit" className="h-8 px-3 text-xs rounded bg-primary text-primary-foreground hover:opacity-90">Create</button>
+        </div>
+        <style>{`.inp{width:100%;background:hsl(var(--secondary)/0.4);border:1px solid hsl(var(--border));border-radius:4px;padding:6px 8px;font-family:inherit;font-size:12px;color:inherit}.inp:focus{outline:none;border-color:hsl(var(--primary))}`}</style>
+      </form>
+    </div>
+  );
+}
+function Field({ label, children, full }: { label: string; children: React.ReactNode; full?: boolean }) {
+  return (
+    <label className={full ? "col-span-2" : ""}>
+      <div className="tech-label mb-1">{label}</div>
+      {children}
+    </label>
   );
 }
 
