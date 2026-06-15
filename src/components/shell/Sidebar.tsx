@@ -4,6 +4,7 @@ import {
   Cog, Database, Factory, FileText, GitBranch, Layers, MessageSquare,
   Network, Plug, Search, Settings, ShieldCheck, Truck, Users, Workflow, Zap,
   Crosshair, FlaskConical,
+  MailQuestion,
 } from "lucide-react";
 
 const items = [
@@ -30,6 +31,7 @@ const items = [
   { to: "/app/integrations", icon: Plug, label: "Integrations" },
   { divider: "Admin" },
   { to: "/app/users", icon: Users, label: "User Management" },
+  { to: "/app/access-requests", icon: MailQuestion, label: "Access Requests" },
   { to: "/app/access", icon: ShieldCheck, label: "Access Control" },
   { to: "/app/audit", icon: BarChart3, label: "Audit Logs" },
   { to: "/app/settings", icon: Settings, label: "Settings" },
