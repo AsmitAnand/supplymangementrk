@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Sparkles, Lock } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Sparkles, Lock, UserPlus } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 
 export const Route = createFileRoute("/login")({ component: Login });
@@ -16,7 +17,11 @@ function Login() {
     e.preventDefault();
     const r = login(u, p);
     if (!r.ok) setErr(r.error);
-    else nav({ to: "/app/dashboard", replace: true });
+    else {
+      // Persist owner password so admin server fns can be authenticated.
+      try { if (u.toUpperCase().includes("RITAM")) localStorage.setItem("smr.owner_token", p); } catch { /* noop */ }
+      nav({ to: "/app/dashboard", replace: true });
+    }
   }
   return (
     <div className="min-h-screen grid place-items-center px-4">
@@ -44,6 +49,13 @@ function Login() {
             <Lock className="h-3.5 w-3.5" /> Sign in
           </button>
         </form>
+        <Link to="/request-access"
+          className="mt-3 w-full h-10 rounded-md border border-border hover:border-primary/50 hover:bg-primary/5 text-foreground font-medium text-sm flex items-center justify-center gap-2 transition">
+          <UserPlus className="h-3.5 w-3.5" /> Request access
+        </Link>
+        <p className="text-[11px] text-muted-foreground mt-2 text-center">
+          Don't have an account? Every account is owner-approved.
+        </p>
         <div className="mt-6 pt-4 border-t border-border text-[11px] text-muted-foreground">
           <div className="tech-label mb-1">Owner demo</div>
           <div className="font-mono">RITAM KHANDELWAL / RITAM123</div>
