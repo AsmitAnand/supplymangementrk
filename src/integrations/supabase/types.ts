@@ -14,7 +14,134 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      access_requests: {
+        Row: {
+          company: string
+          created_at: string
+          decided_at: string | null
+          decided_by: string | null
+          decision_note: string | null
+          designation: string
+          email: string
+          id: string
+          industry: string
+          ip: string | null
+          linkedin: string | null
+          name: string
+          phone: string
+          reason: string
+          status: Database["public"]["Enums"]["request_status"]
+          user_agent: string | null
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          decided_at?: string | null
+          decided_by?: string | null
+          decision_note?: string | null
+          designation: string
+          email: string
+          id?: string
+          industry: string
+          ip?: string | null
+          linkedin?: string | null
+          name: string
+          phone: string
+          reason: string
+          status?: Database["public"]["Enums"]["request_status"]
+          user_agent?: string | null
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          decided_at?: string | null
+          decided_by?: string | null
+          decision_note?: string | null
+          designation?: string
+          email?: string
+          id?: string
+          industry?: string
+          ip?: string | null
+          linkedin?: string | null
+          name?: string
+          phone?: string
+          reason?: string
+          status?: Database["public"]["Enums"]["request_status"]
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      audit_events: {
+        Row: {
+          action: string
+          actor: string | null
+          detail: string | null
+          id: string
+          ip: string | null
+          target: string | null
+          ts: string
+          user_agent: string | null
+        }
+        Insert: {
+          action: string
+          actor?: string | null
+          detail?: string | null
+          id?: string
+          ip?: string | null
+          target?: string | null
+          ts?: string
+          user_agent?: string | null
+        }
+        Update: {
+          action?: string
+          actor?: string | null
+          detail?: string | null
+          id?: string
+          ip?: string | null
+          target?: string | null
+          ts?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      invite_tokens: {
+        Row: {
+          created_at: string
+          email: string
+          expires_at: string
+          name: string
+          request_id: string | null
+          token: string
+          used_at: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          expires_at: string
+          name: string
+          request_id?: string | null
+          token: string
+          used_at?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          expires_at?: string
+          name?: string
+          request_id?: string | null
+          token?: string
+          used_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invite_tokens_request_id_fkey"
+            columns: ["request_id"]
+            isOneToOne: false
+            referencedRelation: "access_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +150,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      request_status: "pending" | "approved" | "denied" | "expired"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +277,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      request_status: ["pending", "approved", "denied", "expired"],
+    },
   },
 } as const
