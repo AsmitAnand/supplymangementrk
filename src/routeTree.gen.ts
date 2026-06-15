@@ -37,6 +37,7 @@ import { Route as AppCascadeRouteImport } from './routes/app.cascade'
 import { Route as AppBatchesRouteImport } from './routes/app.batches'
 import { Route as AppAuditRouteImport } from './routes/app.audit'
 import { Route as AppApiRouteImport } from './routes/app.api'
+import { Route as AppAccessRequestsRouteImport } from './routes/app.access-requests'
 import { Route as AppAccessRouteImport } from './routes/app.access'
 import { Route as ApiCopilotRouteImport } from './routes/api/copilot'
 
@@ -180,6 +181,11 @@ const AppApiRoute = AppApiRouteImport.update({
   path: '/api',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAccessRequestsRoute = AppAccessRequestsRouteImport.update({
+  id: '/access-requests',
+  path: '/access-requests',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppAccessRoute = AppAccessRouteImport.update({
   id: '/access',
   path: '/access',
@@ -199,6 +205,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/copilot': typeof ApiCopilotRoute
   '/app/access': typeof AppAccessRoute
+  '/app/access-requests': typeof AppAccessRequestsRoute
   '/app/api': typeof AppApiRoute
   '/app/audit': typeof AppAuditRoute
   '/app/batches': typeof AppBatchesRoute
@@ -231,6 +238,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/copilot': typeof ApiCopilotRoute
   '/app/access': typeof AppAccessRoute
+  '/app/access-requests': typeof AppAccessRequestsRoute
   '/app/api': typeof AppApiRoute
   '/app/audit': typeof AppAuditRoute
   '/app/batches': typeof AppBatchesRoute
@@ -264,6 +272,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/copilot': typeof ApiCopilotRoute
   '/app/access': typeof AppAccessRoute
+  '/app/access-requests': typeof AppAccessRequestsRoute
   '/app/api': typeof AppApiRoute
   '/app/audit': typeof AppAuditRoute
   '/app/batches': typeof AppBatchesRoute
@@ -298,6 +307,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/copilot'
     | '/app/access'
+    | '/app/access-requests'
     | '/app/api'
     | '/app/audit'
     | '/app/batches'
@@ -330,6 +340,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/copilot'
     | '/app/access'
+    | '/app/access-requests'
     | '/app/api'
     | '/app/audit'
     | '/app/batches'
@@ -362,6 +373,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/copilot'
     | '/app/access'
+    | '/app/access-requests'
     | '/app/api'
     | '/app/audit'
     | '/app/batches'
@@ -594,6 +606,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppApiRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/access-requests': {
+      id: '/app/access-requests'
+      path: '/access-requests'
+      fullPath: '/app/access-requests'
+      preLoaderRoute: typeof AppAccessRequestsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/access': {
       id: '/app/access'
       path: '/access'
@@ -613,6 +632,7 @@ declare module '@tanstack/react-router' {
 
 interface AppRouteChildren {
   AppAccessRoute: typeof AppAccessRoute
+  AppAccessRequestsRoute: typeof AppAccessRequestsRoute
   AppApiRoute: typeof AppApiRoute
   AppAuditRoute: typeof AppAuditRoute
   AppBatchesRoute: typeof AppBatchesRoute
@@ -640,6 +660,7 @@ interface AppRouteChildren {
 
 const AppRouteChildren: AppRouteChildren = {
   AppAccessRoute: AppAccessRoute,
+  AppAccessRequestsRoute: AppAccessRequestsRoute,
   AppApiRoute: AppApiRoute,
   AppAuditRoute: AppAuditRoute,
   AppBatchesRoute: AppBatchesRoute,
