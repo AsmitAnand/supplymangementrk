@@ -1,17 +1,21 @@
 import { Bell, Database, Download, Plus, Save, Search, Sparkles, Upload, User2 } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { useShell } from "./shell-context";
+import { BrandLogo, BrandWordmark } from "./BrandLogo";
 
 export function Header() {
   const { user, logout } = useAuth();
   const { toggleCopilot } = useShell();
   return (
-    <header className="h-14 border-b border-border bg-card/60 backdrop-blur-xl sticky top-0 z-30 flex items-center px-4 gap-4">
-      <div className="flex items-baseline gap-3 mr-4">
-        <span className="font-mono font-bold tracking-tight text-foreground">SUPPLYMIND<span className="text-primary">.RESEARCH</span></span>
-        <span className="hidden md:inline text-[10px] tech-label">Multi-Granularity OCPM for Shortage Management</span>
+    <header className="h-14 border-b border-border bg-card/80 backdrop-blur-xl sticky top-0 z-30 flex items-center px-3 md:px-4 gap-3 md:gap-4 pt-[env(safe-area-inset-top)]">
+      <div className="flex items-center gap-2 md:mr-4 min-w-0">
+        <BrandLogo />
+        <div className="flex flex-col leading-tight min-w-0">
+          <BrandWordmark className="text-sm md:text-base" />
+          <span className="hidden md:inline text-[10px] tech-label truncate">Supply Mind Research</span>
+        </div>
       </div>
-      <div className="flex-1 max-w-xl relative">
+      <div className="hidden md:block flex-1 max-w-xl relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
         <input
           placeholder="Search materials, suppliers, shortages, POs…"

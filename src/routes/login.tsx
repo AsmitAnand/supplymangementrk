@@ -1,8 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Sparkles, Lock, UserPlus } from "lucide-react";
+import { Lock, UserPlus } from "lucide-react";
 import { useAuth } from "@/lib/auth";
+import { BrandLogo, BrandWordmark } from "@/components/shell/BrandLogo";
 
 export const Route = createFileRoute("/login")({ component: Login });
 
@@ -26,11 +27,11 @@ function Login() {
   return (
     <div className="min-h-screen grid place-items-center px-4">
       <div className="w-full max-w-md panel p-8">
-        <div className="flex items-center gap-2 mb-6">
-          <Sparkles className="h-5 w-5 text-primary" />
+        <div className="flex items-center gap-3 mb-6">
+          <BrandLogo size="lg" />
           <div>
-            <div className="font-mono font-bold tracking-tight">SUPPLYMIND<span className="text-primary">.RESEARCH</span></div>
-            <div className="tech-label">Multi-Granularity OCPM</div>
+            <BrandWordmark className="text-lg" />
+            <div className="tech-label">Supply Mind Research</div>
           </div>
         </div>
         <h1 className="text-lg font-semibold mb-1">Secure access</h1>

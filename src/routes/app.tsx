@@ -4,6 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { Header } from "@/components/shell/Header";
 import { Sidebar } from "@/components/shell/Sidebar";
 import { CopilotPanel } from "@/components/shell/CopilotPanel";
+import { MobileBottomNav } from "@/components/shell/MobileBottomNav";
 import { ShellProvider } from "@/components/shell/shell-context";
 
 export const Route = createFileRoute("/app")({ component: AppShell });
@@ -17,10 +18,13 @@ function AppShell() {
     <ShellProvider>
       <Header />
       <div className="flex">
-        <Sidebar />
-        <main className="flex-1 min-w-0 p-6 max-w-[1600px]"><Outlet /></main>
+        <div className="hidden md:block"><Sidebar /></div>
+        <main className="flex-1 min-w-0 p-4 md:p-6 max-w-[1600px] pb-24 md:pb-6">
+          <Outlet />
+        </main>
       </div>
       <CopilotPanel />
+      <MobileBottomNav />
     </ShellProvider>
   );
 }
