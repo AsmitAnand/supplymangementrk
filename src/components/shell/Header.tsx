@@ -1,4 +1,4 @@
-import { Bell, Database, Download, Plus, Save, Search, Sparkles, Upload, User2 } from "lucide-react";
+import { Bell, Search, Sparkles, User2 } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { useShell } from "./shell-context";
 import { BrandLogo, BrandWordmark } from "./BrandLogo";
@@ -24,14 +24,6 @@ export function Header() {
         <kbd className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-muted-foreground border border-border rounded px-1.5 py-0.5">⌘K</kbd>
       </div>
       <div className="flex items-center gap-1 ml-auto">
-        <button className="h-9 px-2 flex items-center gap-1 text-xs rounded-md hover:bg-secondary/60 text-muted-foreground" title="Dataset">
-          <Database className="h-3.5 w-3.5 text-accent" />
-          <span className="font-mono">prod-ocel-v3</span>
-        </button>
-        <Btn icon={<Plus className="h-3.5 w-3.5" />} label="Quick add" />
-        <Btn icon={<Upload className="h-3.5 w-3.5" />} label="Import" />
-        <Btn icon={<Save className="h-3.5 w-3.5" />} label="Save" />
-        <Btn icon={<Download className="h-3.5 w-3.5" />} label="Export" />
         <button className="h-8 w-8 grid place-items-center rounded-md hover:bg-secondary/60 relative" title="Notifications">
           <Bell className="h-4 w-4 text-muted-foreground" />
           <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-destructive" />
@@ -55,13 +47,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  );
-}
-
-function Btn({ icon, label }: { icon: React.ReactNode; label: string }) {
-  return (
-    <button title={label} className="h-8 px-2 hidden lg:flex items-center gap-1 text-[11px] rounded-md hover:bg-secondary/60 text-muted-foreground hover:text-foreground">
-      {icon}<span>{label}</span>
-    </button>
   );
 }
