@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "supplymind",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build:vercel": "NITRO_PRESET=vercel vite build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -85,5 +86,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1"
-  }
+  },
+  "version": "2.0.0",
+  "description": "SupplyMind \u2014 Supply Chain Intelligence Platform"
 }
