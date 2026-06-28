@@ -16,7 +16,7 @@ function Users() {
     <div>
       <PageHeader title="User Management" subtitle="Owner-controlled, invite-only access"
         actions={<button onClick={()=>setShow(true)} className="h-8 px-3 text-xs rounded bg-primary text-primary-foreground flex items-center gap-1"><UserPlus className="h-3.5 w-3.5" /> Invite user</button>} />
-      {credential && <div className="panel p-3 mb-4 border-primary/40 glow-amber"><div className="tech-label">Temporary credentials issued</div><div className="font-mono text-sm mt-1">{credential}</div></div>}
+      {credential && <div className="panel p-3 mb-4 border-primary/40 glow-gold"><div className="tech-label">Temporary credentials issued</div><div className="font-mono text-sm mt-1">{credential}</div></div>}
       <div className="panel overflow-hidden"><table className="w-full text-xs">
         <thead><tr className="border-b border-border bg-secondary/30">{["User","Email","Role","Status","Last login","Created","Actions"].map(h=>(<th key={h} className="text-left px-3 py-2 tech-label">{h}</th>))}</tr></thead>
         <tbody>{users.map(usr=>(

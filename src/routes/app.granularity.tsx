@@ -44,7 +44,7 @@ function GranularityPage() {
           const active = view.appliedOps[view.appliedOps.length - 1] === o.id;
           return (
             <button key={o.id} onClick={() => apply(o.id)}
-              className={`panel panel-hover p-4 text-left transition ${active ? "border-primary/50 glow-amber" : ""}`}>
+              className={`panel panel-hover p-4 text-left transition ${active ? "border-primary/50 glow-gold" : ""}`}>
               <div className="flex items-center justify-between">
                 <o.icon className={`h-4 w-4 ${active ? "text-primary" : "text-muted-foreground"}`} />
                 <span className="tech-label">{o.id}</span>

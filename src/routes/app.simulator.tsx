@@ -14,14 +14,14 @@ export const Route = createFileRoute("/app/simulator")({ component: () => {
   };
   const Slider = ({ label, value, set, min, max, unit }: { label: string; value: number; set: (n: number) => void; min: number; max: number; unit: string }) => (
     <div><div className="flex items-center justify-between"><span className="tech-label">{label}</span><span className="font-mono text-xs text-primary">{value > 0 ? "+" : ""}{value}{unit}</span></div>
-      <input type="range" min={min} max={max} value={value} onChange={(e)=>set(Number(e.target.value))} className="w-full accent-[oklch(0.82_0.16_82)]" /></div>
+      <input type="range" min={min} max={max} value={value} onChange={(e)=>set(Number(e.target.value))} className="w-full accent-primary" /></div>
   );
   const Delta = ({ label, before, after }: { label: string; before: number; after: number }) => {
     const delta = after - before; const pct = before ? ((delta/before)*100).toFixed(0) : "0";
     return (
       <div className="panel p-4"><div className="tech-label">{label}</div>
         <div className="mt-1 font-mono text-2xl">{after.toLocaleString()}</div>
-        <div className={`text-xs mt-1 ${delta>0?"text-destructive":delta<0?"text-[oklch(0.78_0.16_150)]":"text-muted-foreground"}`}>{delta>0?"▲":delta<0?"▼":"●"} {pct}% vs baseline ({before.toLocaleString()})</div>
+        <div className={`text-xs mt-1 ${delta>0?"text-destructive":delta<0?"text-success":"text-muted-foreground"}`}>{delta>0?"▲":delta<0?"▼":"●"} {pct}% vs baseline ({before.toLocaleString()})</div>
       </div>
     );
   };

@@ -88,7 +88,7 @@ function AccessRequestsPage() {
       />
 
       {invite && (
-        <div className="panel p-4 mb-4 border-primary/40 glow-amber">
+        <div className="panel p-4 mb-4 border-primary/40 glow-gold">
           <div className="tech-label mb-1">Invite generated for {invite.email}</div>
           <div className="text-xs text-muted-foreground mb-2">
             Share this link with the requester. Expires {new Date(invite.expires_at).toLocaleString()}.
@@ -158,7 +158,7 @@ function AccessRequestsPage() {
                 <td className="px-3 py-2">
                   {r.status === "pending" ? (
                     <div className="flex gap-1">
-                      <button onClick={() => onApprove(r.id)} className="h-7 px-2 rounded bg-[oklch(0.78_0.16_150)]/15 text-[oklch(0.78_0.16_150)] text-[11px] flex items-center gap-1 hover:bg-[oklch(0.78_0.16_150)]/25">
+                      <button onClick={() => onApprove(r.id)} className="h-7 px-2 rounded bg-success/15 text-success text-[11px] flex items-center gap-1 hover:bg-success/25">
                         <Check className="h-3 w-3" /> Approve
                       </button>
                       <button onClick={() => onDeny(r.id)} className="h-7 px-2 rounded bg-destructive/15 text-destructive text-[11px] flex items-center gap-1 hover:bg-destructive/25">

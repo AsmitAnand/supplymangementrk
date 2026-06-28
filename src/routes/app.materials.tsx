@@ -167,7 +167,7 @@ function MaterialDrawer({ m, onClose }: { m: Material; onClose: () => void }) {
             <div className="flex items-center justify-between mt-2 text-[11px] font-mono">
               <span>Avg cost: <span className="text-primary">${intel.averageCost}</span></span>
               <span>Last: ${intel.lastPrice}</span>
-              <span className={`flex items-center gap-1 ${intel.trend === "rising" ? "text-destructive" : "text-[oklch(0.78_0.16_150)]"}`}>
+              <span className={`flex items-center gap-1 ${intel.trend === "rising" ? "text-destructive" : "text-success"}`}>
                 {intel.trend === "rising" ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
                 {intel.trend}
               </span>

@@ -123,7 +123,7 @@ function InvitePage() {
 
         {state === "done" && (
           <div className="text-center py-4">
-            <CheckCircle2 className="h-10 w-10 text-[oklch(0.78_0.16_150)] mx-auto mb-3" />
+            <CheckCircle2 className="h-10 w-10 text-success mx-auto mb-3" />
             <p className="text-sm font-medium mb-1">Account activated</p>
             <p className="text-xs text-muted-foreground mb-4">Sign in below with your new credentials.</p>
             {credential && <div className="font-mono text-xs bg-input/50 border border-border rounded px-2 py-1 mb-4">{credential}</div>}

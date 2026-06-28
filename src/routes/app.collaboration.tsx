@@ -12,7 +12,7 @@ export const Route = createFileRoute("/app/collaboration")({ component: () => (
         ].map((a,i)=>(<div key={i} className="text-xs py-2 border-b border-border/50 last:border-0"><span className="text-primary font-medium">{a.who}</span> <span className="text-muted-foreground">{a.what}</span> <span className="text-muted-foreground ml-auto float-right font-mono">{a.when}</span></div>))}
       </div>
       <div className="panel p-4"><div className="tech-label mb-3">Open tasks</div>
-        {["Approve PO-00041 escalation","Review batch BCH-00007 quality","Update planning rule for MAT-00033"].map(t=>(<div key={t} className="text-xs py-2 border-b border-border/50 last:border-0 flex items-center gap-2"><input type="checkbox" className="accent-[oklch(0.82_0.16_82)]" />{t}</div>))}
+        {["Approve PO-00041 escalation","Review batch BCH-00007 quality","Update planning rule for MAT-00033"].map(t=>(<div key={t} className="text-xs py-2 border-b border-border/50 last:border-0 flex items-center gap-2"><input type="checkbox" className="accent-primary" />{t}</div>))}
       </div>
     </div></div>
 ) });

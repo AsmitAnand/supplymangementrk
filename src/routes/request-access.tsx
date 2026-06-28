@@ -49,7 +49,7 @@ function RequestAccess() {
     return (
       <div className="min-h-screen grid place-items-center px-4">
         <div className="w-full max-w-md panel p-8 text-center">
-          <CheckCircle2 className="h-10 w-10 text-[oklch(0.78_0.16_150)] mx-auto mb-3" />
+          <CheckCircle2 className="h-10 w-10 text-success mx-auto mb-3" />
           <h1 className="text-lg font-semibold mb-1">Request submitted</h1>
           <p className="text-sm text-muted-foreground mb-5">
             Your access request has been received. The owner will review it shortly and you'll receive an email when a decision is made.

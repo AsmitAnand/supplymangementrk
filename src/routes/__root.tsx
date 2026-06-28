@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
       { name: "mobile-web-app-capable", content: "yes" },
-      { name: "theme-color", content: "#4338ca" },
+      { name: "theme-color", content: "#0d0d10" },
       { property: "og:title", content: "CampusAI — Supply Mind Research" },
       { property: "og:description", content: "AI-powered supply chain intelligence and shortage cascade research for modern teams." },
       { property: "og:type", content: "website" },

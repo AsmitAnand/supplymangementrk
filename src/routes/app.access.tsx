@@ -14,7 +14,7 @@ export const Route = createFileRoute("/app/access")({ component: () => (
         {PERMS.map(p=>(<th key={p} className="text-center px-3 py-2 tech-label">{p}</th>))}</tr></thead>
       <tbody>{ROLES.map(r=>(<tr key={r} className="border-b border-border/50">
         <td className="px-3 py-2 font-medium">{r}</td>
-        {PERMS.map(p=>(<td key={p} className="text-center px-3 py-2">{matrix[r].includes(p) ? <span className="text-[oklch(0.78_0.16_150)]">●</span> : <span className="text-muted-foreground/40">○</span>}</td>))}
+        {PERMS.map(p=>(<td key={p} className="text-center px-3 py-2">{matrix[r].includes(p) ? <span className="text-success">●</span> : <span className="text-muted-foreground/40">○</span>}</td>))}
       </tr>))}</tbody>
     </table></div></div>
 ) });

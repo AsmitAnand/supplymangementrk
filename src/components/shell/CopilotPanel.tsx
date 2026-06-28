@@ -57,8 +57,8 @@ export function CopilotPanel() {
       <div className="px-3 py-2 flex items-center gap-2 border-b border-border">
         <span className="tech-label">Model</span>
         <span className="font-mono text-[10px] text-foreground">gemini-3-flash</span>
-        <span className="ml-auto flex items-center gap-1 text-[10px]" style={{ color: "oklch(0.78 0.16 150)" }}>
-          <span className="h-1.5 w-1.5 rounded-full" style={{ background: "oklch(0.72 0.16 150)", boxShadow: "0 0 8px oklch(0.72 0.16 150 / .6)" }} />
+        <span className="ml-auto flex items-center gap-1 text-[10px] text-success">
+          <span className="h-1.5 w-1.5 rounded-full bg-success" style={{ boxShadow: "var(--glow-green)" }} />
           grounded on live data
         </span>
       </div>

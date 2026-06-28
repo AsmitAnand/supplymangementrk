@@ -50,7 +50,7 @@ function AppShell() {
       {/* Bottom status bar: desktop only */}
       <div className="hidden md:flex h-7 border-t border-border bg-card/80 backdrop-blur-sm items-center px-4 gap-4 sticky bottom-0 z-20">
         <div className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.70_0.165_152)]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-success" />
           <span className="text-[10px] text-muted-foreground">
             All systems <span className="text-foreground/70">operational</span>
           </span>

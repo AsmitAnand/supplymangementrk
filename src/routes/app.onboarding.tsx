@@ -156,7 +156,7 @@ function OnboardingPage() {
                 {parsed.map((p, i) => (
                   <div key={i} className={`flex items-center gap-2 px-3 py-2 text-xs cursor-pointer border-b-2 ${active === i ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}
                     onClick={() => setActive(i)}>
-                    {p.error ? <AlertCircle className="h-3.5 w-3.5 text-destructive" /> : <CheckCircle2 className="h-3.5 w-3.5 text-[oklch(0.78_0.16_150)]" />}
+                    {p.error ? <AlertCircle className="h-3.5 w-3.5 text-destructive" /> : <CheckCircle2 className="h-3.5 w-3.5 text-success" />}
                     <span className="font-mono">{p.file.name}</span>
                     <button onClick={(e) => { e.stopPropagation(); removeAt(i); }} className="hover:text-destructive"><X className="h-3 w-3" /></button>
                   </div>
@@ -195,7 +195,7 @@ function OnboardingPage() {
                       <div className="flex items-center gap-1.5 truncate"><FileText className="h-3 w-3 text-muted-foreground" /><span className="truncate">{h.name}</span></div>
                       <div className="text-[10px] text-muted-foreground font-mono">{h.kind} · {h.rows} rows · {(h.size/1024).toFixed(1)}KB</div>
                     </div>
-                    <div className={`text-[10px] font-mono ${h.status === "imported" ? "text-[oklch(0.78_0.16_150)]" : "text-destructive"}`}>{h.status}</div>
+                    <div className={`text-[10px] font-mono ${h.status === "imported" ? "text-success" : "text-destructive"}`}>{h.status}</div>
                   </div>
                 ))}
               </div>
